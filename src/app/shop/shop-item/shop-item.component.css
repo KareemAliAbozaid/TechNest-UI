@@ -1,0 +1,123 @@
+:root {
+    --primary-color: #7961ff;
+    --secondary-color: #343a40;
+    --danger-color: #dc3545;
+    --transition-duration: 0.3s;
+}
+
+.product-card {
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background: #fff;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.main-img-container {
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+}
+
+.main-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+    transition: transform 0.3s ease-in-out;
+}
+
+.main-img-container:hover .main-img {
+    transform: scale(1.05);
+}
+
+.favorite-icon {
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    color: var(--primary-color);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.favorite-icon:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.small-img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s, transform 0.2s;
+}
+
+.small-img:hover {
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.small-img.active {
+    border-color: var(--primary-color);
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.4rem;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.6rem;
+}
+
+.price {
+    font-size: 1rem;
+}
+
+.price .old-price {
+    color: var(--danger-color);
+    margin-right: 0.4rem;
+}
+
+.price .new-price {
+    color: var(--secondary-color);
+}
+
+.btn-dark,
+.btn-success {
+    font-size: 0.9rem;
+    transition: 0.2s;
+}
+
+.btn-dark:hover {
+    background: #000;
+}
+
+.btn-success:hover {
+    background: #0b9b5a;
+}

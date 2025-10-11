@@ -1,0 +1,41 @@
+<div class="card product-card h-100 shadow-sm">
+    <div class="main-img-container position-relative">
+        <img [src]="'https://localhost:7185/' + (selectedImage || product.productImages[0]?.imageName)" alt="Product"
+            class="main-img w-100" />
+
+        <button class="btn btn-outline-primary favorite-icon position-absolute top-0 end-0 m-2">
+            <i class="fa fa-bookmark"></i>
+        </button>
+    </div>
+
+    <div class="card-body">
+        <div class="thumbnails mb-3 d-flex gap-2">
+            @for (item of product.productImages; track $index) {
+            <img [src]="'https://localhost:7185/' + item.imageName" alt="Thumbnail"
+                class="thumbnail-img small-img border" [class.active]="selectedImage === item.imageName"
+                (click)="selectedImage = item.imageName" />
+            }
+        </div>
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <p class="price">
+            <span class="old-price text-muted text-decoration-line-through">
+                {{ product.oldPrice | currency }}
+            </span>
+            <span class="fw-bold new-price">{{ product.newPrice | currency }}</span>
+        </p>
+
+        <div class="rating mb-3">
+            <i class="fa fa-star" *ngFor="let s of [1,2,3,4]" style="color: #fadb14; font-size: 15px;"></i>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-start mt-2">
+            <button class="btn btn-dark">
+                <i class="fa fa-shopping-cart"></i> Add to Cart
+            </button>
+            <button class="btn btn-success">
+                <i class="fa fa-info-circle"></i> Details
+            </button>
+        </div>
+    </div>
+</div>
